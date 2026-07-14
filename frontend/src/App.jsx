@@ -1,6 +1,4 @@
-import { useMemo, useState } from 'react'
-import { jsPDF } from 'jspdf'
-import './App.css'
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const audienceOptions = [
   {
@@ -157,92 +155,26 @@ function App() {
                     />
                   </label>
 
-                  <label>
-                    <span>Current bank rate</span>
-                    <input
-                      type="number"
-                      step="0.01"
-                      name="currentBankRate"
-                      value={form.currentBankRate}
-                      onChange={handleChange}
-                      placeholder="4.75"
-                      required
-                    />
-                  </label>
+        <BrowserRouter>
 
-                  <label>
-                    <span>Target bank rate</span>
-                    <input
-                      type="number"
-                      step="0.01"
-                      name="targetBankRate"
-                      value={form.targetBankRate}
-                      onChange={handleChange}
-                      placeholder="6.00"
-                      required
-                    />
-                  </label>
+            <Routes>
 
-                  <label>
-                    <span>Customer number</span>
-                    <input
-                      type="number"
-                      name="customerNumber"
-                      value={form.customerNumber}
-                      onChange={handleChange}
-                      placeholder="250"
-                      required
-                    />
-                  </label>
+                <Route
+                    path="/"
+                    element={<Login/>}
+                />
 
-                  <label>
-                    <span>Average balance</span>
-                    <input
-                      type="number"
-                      step="0.01"
-                      name="averageBalance"
-                      value={form.averageBalance}
-                      onChange={handleChange}
-                      placeholder="15000"
-                      required
-                    />
-                  </label>
+                <Route
+                    path="/dashboard"
+                    element={<Dashboard/>}
+                />
 
-                  <button type="submit" className="primary-button">
-                    Predict future OCR rate
-                  </button>
-                </form>
-              )}
+            </Routes>
 
-              <div className="advice-card">
-                <p className="advice-label">Advice</p>
-                <p className="advice-text">{adviceText}</p>
+        </BrowserRouter>
 
-                {submitted && (
-                  <div className="advice-meta">
-                    <span>OCR: {summary.ocr.toFixed(2)}%</span>
-                    <span>Gap to target: {summary.rateGap}%</span>
-                    <span>Portfolio: {summary.portfolioValue}</span>
-                  </div>
-                )}
+    );
 
-                <div className="button-row">
-                  <button
-                    type="button"
-                    className="secondary-button"
-                    onClick={handleDownloadPdf}
-                    disabled={!submitted}
-                  >
-                    Download advice as PDF
-                  </button>
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-      </section>
-    </main>
-  )
 }
 
-export default App
+export default App;
