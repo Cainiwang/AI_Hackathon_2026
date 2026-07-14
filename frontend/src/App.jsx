@@ -4,14 +4,14 @@ import './App.css'
 
 const audienceOptions = [
   {
-    id: 'business',
-    label: 'Load Interest',
-    description: 'Commercial clients, companies, and business accounts.',
+    id: 'Loan interest rate simulator',
+    label: 'Loan Interest',
+    description: 'Calculate the best interest rates range for loan interest.',
   },
   {
-    id: 'personal',
+    id: 'Saving interest rate simulator',
     label: 'Saving Interest',
-    description: 'Individual customers and personal banking accounts.',
+    description: 'Calculate the best interest rates range for saving interest.',
   },
 ]
 
@@ -47,7 +47,7 @@ function App() {
   const handleSelectAudience = (audience) => {
     setSelectedAudience(audience)
     setSubmitted(false)
-    setAdviceText('Choose an audience and fill in the details to generate advice.')
+    setAdviceText('Choose a model and fill in the details to generate advice.')
   }
 
   const handleChange = (event) => {
@@ -61,7 +61,7 @@ function App() {
   const handlePredict = (event) => {
     event.preventDefault()
 
-    const audienceLabel = selectedAudience === 'business' ? 'business' : 'personal'
+    const audienceLabel = selectedAudience === 'Loan interest rate simulator' ? 'loan' : 'saving'
     const bankRate = Number(form.currentBankRate || 0)
     const targetRate = Number(form.targetBankRate || 0)
     const ocrRate = Number(form.currentOcrRate || 0)
@@ -71,7 +71,7 @@ function App() {
     const portfolioValue = customerCount * averageBalance
 
     setAdviceText(
-      `Here is the advice for now: for ${audienceLabel} customers, review the OCR rate at ${ocrRate.toFixed(2)}%, keep the bank rate around ${bankRate.toFixed(2)}%, and target ${targetRate.toFixed(2)}%. With ${customerCount} customers and an average balance of ${averageBalance.toLocaleString()}, the current gap is ${gap.toFixed(2)}% and the portfolio value is about ${portfolioValue.toLocaleString()}.`
+      `Here is the advice for now: for ${audienceLabel}, review the OCR rate at ${ocrRate.toFixed(2)}%, keep the bank rate around ${bankRate.toFixed(2)}%, and target ${targetRate.toFixed(2)}%. With ${customerCount} customers and an average balance of ${averageBalance.toLocaleString()}, the current gap is ${gap.toFixed(2)}% and the portfolio value is about ${portfolioValue.toLocaleString()}.`
     )
     setSubmitted(true)
   }
@@ -134,13 +134,13 @@ function App() {
                 <span className="chat-dot" />
                 <strong>OCR assistant</strong>
                 <span className="chat-status">
-                  {selectedAudience ? `Audience: ${selectedAudience}` : 'Pick an audience to begin'}
+                  {selectedAudience ? `Model: ${selectedAudience}` : 'Pick a model to begin'}
                 </span>
               </div>
 
               {!selectedAudience ? (
                 <p className="chat-message">
-                  Select load interest or saving interest on the left, and I will ask for the values here.
+                  Select a model on the left, and I will ask for the values here.
                 </p>
               ) : (
                 <form className="input-form" onSubmit={handlePredict}>
