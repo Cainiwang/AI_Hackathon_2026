@@ -1,5 +1,6 @@
 import { getCurrentUser } from './utils/Auth.js';
 import { useNavigate } from 'react-router-dom';
+import './App.css';
 
 export default function Profile() {
 
@@ -10,50 +11,36 @@ export default function Profile() {
     navigate("/dashboard");
   }
   return (
-    <div>
+    <div className="profile-page">
 
 
-      <h1>
+      <div className="profile-card">
 
-        Profile
+        <h1>
 
-      </h1>
+          Profile
 
+        </h1>
 
-      <p>
+        <div className="profile-info">
+          <strong>Username:</strong> {user.username}
+        </div>
 
-        Username:
+        <div className="profile-info">
+          <strong>Name:</strong> {user.firstName} {user.lastName}
+        </div>
 
-        {user.username}
+        <div className="profile-info">
+          <strong>Email:</strong> {user.email}
+        </div>
 
-      </p>
+        <div className="profile-buttons">
+          <button onClick={returnDashboard}>
+            Return
+          </button>
+        </div>
 
-
-      <p>
-
-        Name:
-
-        {user.firstName}
-
-        {user.lastName}
-
-      </p>
-
-
-
-      <p>
-
-        Email:
-
-        {user.email}
-
-      </p>
-
-      <button
-        onClick={returnDashboard}
-      >
-        Return
-      </button>
+      </div>
 
     </div >
 

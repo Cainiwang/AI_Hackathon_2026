@@ -269,3 +269,132 @@
 .profile-menu hr {
   margin: 0;
 }
+
+.profile-page {
+  min-height: 100vh;
+  background: #eef4fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-card {
+  width: 600px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+}
+
+.profile-card h1 {
+  margin-bottom: 30px;
+  color: #003366;
+}
+
+.profile-info {
+  margin: 18px 0;
+  padding: 15px;
+  border-radius: 10px;
+  background: #f6f8fc;
+}
+
+.profile-info strong {
+  display: inline-block;
+  width: 120px;
+  color: #003366;
+}
+
+.profile-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.profile-buttons button {
+  background: #005BAC;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.profile-buttons button:hover {
+  background: #004080;
+}
+
+.settings-page {
+  min-height: 100vh;
+  background: #eef4fb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.settings-card {
+  width: 600px;
+  background: white;
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .1);
+
+}
+
+.settings-card h1 {
+  color: #003366;
+  margin-bottom: 30px;
+
+}
+
+.settings-card h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  color: #005BAC;
+
+}
+
+.settings-card input {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  font-size: 16px;
+
+}
+
+.settings-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.settings-buttons button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+
+}
+
+.save-btn {
+  background: #0077cc;
+
+}
+
+.return-btn {
+  background: #666;
+
+}
+
+.save-btn:hover {
+  background: #005BAC;
+
+}
+
+.return-btn:hover {
+  background: #555;
+
+}

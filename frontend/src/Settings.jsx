@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { getCurrentUser, updateUser } from './utils/Auth.js';
 import { useNavigate } from 'react-router-dom';
+import './App.css';
 
 
 
@@ -35,80 +36,49 @@ export default function Settings() {
 
   return (
 
-    <div>
+    <div className="settings-page">
 
+      <div className="settings-card">
 
-      <h1>
+        <h1>Settings</h1>
 
-        Settings
+        <h3>Change Email</h3>
 
-      </h1>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
+        <h3>Change Password</h3>
 
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <h3>
+        <div className="settings-buttons">
 
-        Change Email
+          <button
+            className="save-btn"
+            onClick={save}
+          >
+            Save
+          </button>
 
-      </h3>
-
-
-      <input
-
-        value={email}
-        onChange={e => setEmail(e.target.value)
-
-        }
-
-      />
-
-
-
-      <h3>
-
-        Change Password
-
-      </h3>
-
-
-      <input
-
-        type="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)
-
-        }
-
-      />
+          <button
+            className="return-btn"
+            onClick={returnToDashboard}
+          >
+            Return
+          </button>
 
 
 
-      <br />
-
-
-      <button
-
-        onClick={save}
-
-      >
-
-        Save
-
-      </button>
-
-      <button
-
-        onClick={returnToDashboard}
-      >
-        Return
-
-      </button>
-
+        </div>
+      </div>
 
     </div>
-
-
   );
-
 
 }
