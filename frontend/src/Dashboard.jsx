@@ -1,12 +1,17 @@
-import { useMemo, useState } from 'react'
-import { AudienceSelector } from './components/AudienceSelector.jsx'
-import { AdvicePanel } from './components/AdvicePanel.jsx'
-import { OCRForm } from './components/OCRForm.jsx'
-import './App.css'
+import { useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AudienceSelector } from './components/AudienceSelector.jsx';
+import { AdvicePanel } from './components/AdvicePanel.jsx';
+import { OCRForm } from './components/OCRForm.jsx';
+import './App.css';
+import { getCurrentUser, logoutUser } from "./utils/Auth.js";
 
 function Dashboard() {
   const [audience, setAudience] = useState('')
   const [scenario, setScenario] = useState(null)
+  const navigate = useNavigate()
+  const [showMenu, setShowMenu] = useState(false)
+  const user = getCurrentUser();
 
   const placeholderAdvice = useMemo(() => {
     if (!scenario) {
@@ -54,7 +59,83 @@ function Dashboard() {
   return (
     <main className="app-shell">
       <header className="hero-banner">
-        <p className="eyebrow">OCR forecast assistant</p>
+
+        <div className="top-bar">
+
+          <div>
+
+            <p className="eyebrow">
+              OCR forecast assistant
+            </p>
+
+          </div>
+
+          <div className="profile-container">
+
+            <button
+
+              className="profile-button"
+              onClick={() => setShowMenu(!showMenu)}
+            >
+
+              👤 {user?.username} ▼
+            </button>
+
+            {
+
+              showMenu &&
+
+              <div className="profile-menu">
+
+                <button
+                  onClick={() => {
+                    navigate("/profile")
+                  }}>
+
+                  Profile
+                </button>
+
+                <button
+                  onClick={() => {
+                    navigate("/settings")
+                  }}
+                >
+                  Settings
+                </button>
+
+                <hr />
+
+                <button
+                  onClick={() => {
+                    localStorage.removeItem("loggedIn")
+                    navigate("/")
+                  }}
+
+                >
+                  Logout
+
+                </button>
+
+              </div>
+
+            }
+
+          </div>
+
+        </div>
+
+        <h1>
+
+          Plan the right rate strategy
+
+        </h1>
+
+        <p className="hero-copy">
+
+          Pick whether this is for business or personal first, then enter the current OCR and banking inputs.
+
+        </p>
+
         <h1>Plan the right rate strategy</h1>
         <p className="hero-copy">
           Pick whether this is for business or personal first, then enter the current OCR and
