@@ -1,95 +1,106 @@
-.overlay{
+.model-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
 
-position:fixed;
-
-top:0;
-left:0;
-
-width:100%;
-height:100%;
-
-background:rgba(0,0,0,0.45);
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
+.model {
+  width: 520px;
+  background: white;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, .2);
 
 }
 
+.model h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #003366;
+}
 
-.model{
-
-
-width:380px;
-
-background:white;
-
-padding:35px;
-
-border-radius:18px;
-
-box-shadow:
-0 10px 30px rgba(0,0,0,0.3);
+.model input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #cccccc;
 
 }
 
-
-.model h2{
-
-text-align:center;
-
-margin-bottom:25px;
-
-}
-
-
-.modal input{
-
-
-width:100%;
-
-padding:12px;
-
-margin-bottom:15px;
-
-border-radius:8px;
-
-border:1px solid #ccc;
-
+.model select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 8px;
 
 }
 
-
-
-.model button{
-
-
-width:100%;
-
-padding:12px;
-
-margin-top:10px;
-
-border:none;
-
-border-radius:8px;
-
-background:#005eb8;
-
-color:white;
-
-cursor:pointer;
-
+.model-buttons {
+  display: flex;
+  justify-content: space-between;
 
 }
 
+.blue-btn {
+  width: 45%;
+  background: #0462ba;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
 
-.model .cancel{
+}
 
+.gray-btn {
+  width: 45%;
+  background: #cccccc;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
 
-background:#777;
+}
 
+.blue-btn:hover {
+  background: #0455a0;
+}
 
+.gray-btn:hover {
+  background: #d1d5db;
+}
+
+.password-box {
+  position: relative;
+  margin-bottom: 15px;
+
+}
+
+.password-box input {
+  width: 100%;
+  padding-right: 55px;
+
+}
+
+.eye-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.eye-button:hover {
+  transform: translateY(-50%) scale(1.1);
 }

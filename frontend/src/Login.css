@@ -1,248 +1,122 @@
-.login-page{
+.login-page {
 
-    position:relative;
-
-    overflow:hidden;
-
-    height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    background:#224ec6fc;
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #224ec6fc;
 
 }
 
-.stars{
-
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    background-image:
-        radial-gradient(white 1px, transparent 1px),
-        radial-gradient(white 1px, transparent 1px);
-
-    background-size:80px 80px;
-
-    background-position:0 0,40px 40px;
-
-    opacity:0.35;
+.login-card {
+  position: relative;
+  z-index: 10;
+  width: 430px;
+  background: rgb(255, 255, 255);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgb(255, 255, 255);
+  border-radius: 24px;
+  padding: 45px;
+  color: rgba(0, 0, 0, 0.744);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
 
 }
 
-.twinkling{
+.login-card h1 {
 
-    position:absolute;
-
-    width:100%;
-
-    height:100%;
-
-    background-image:
-
-    radial-gradient(circle,#ffffff 1px,transparent 1px);
-
-    background-size:140px 140px;
-
-    animation:twinkle 6s infinite alternate;
-
-    opacity:0.6;
+  text-align: center;
+  color: #003366;
+  margin-bottom: 8px;
 
 }
 
-@keyframes twinkle{
-
-    0%{
-
-        opacity:0.2;
-
-        transform:translateY(0px);
-
-    }
-
-    50%{
-
-        opacity:0.7;
-
-    }
-
-    100%{
-
-        opacity:0.3;
-
-        transform:translateY(-20px);
-
-    }
+.subtitle {
+  text-align: center;
+  color: gray;
+  margin-bottom: 30px;
 
 }
 
-.login-card{
-
-    position:relative;
-
-    z-index:10;
-
-    width:430px;
-
-    background:rgb(255, 255, 255);
-
-    backdrop-filter:blur(18px);
-
-    border:1px solid rgb(255, 255, 255);
-
-    border-radius:24px;
-
-    padding:45px;
-
-    color:rgba(0, 0, 0, 0.744);
-
-    box-shadow:
-
-        0 15px 50px rgba(0,0,0,0.45);
-
-}
-
-.login-card h1{
-
-    text-align:center;
-
-    color:#003366;
-
-    margin-bottom:8px;
-
-}
-
-.subtitle{
-
-    text-align:center;
-
-    color:gray;
-
-    margin-bottom:30px;
-
-}
-
-.login-card label{
-
-    display:block;
-
-    margin-top:15px;
-
-    margin-bottom:8px;
-
-    font-weight:bold;
+.login-card label {
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: bold;
 
 }
 
 .login-card input[type=text],
-.login-card input[type=password]{
-
-    width:100%;
-
-    padding:12px;
-
-    border-radius:10px;
-
-    border:1px solid #cccccc;
-
-    font-size:16px;
+.login-card input[type=password] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  font-size: 16px;
 
 }
 
-.login-card input:focus{
-
-    outline:none;
-
-    border:1px solid #1976d2;
+.login-card input:focus {
+  outline: none;
+  border: 1px solid #1976d2;
 
 }
 
-.remember-row{
-
-    margin-top:15px;
-
-}
-
-.login-button{
-
-    width:100%;
-
-    margin-top:25px;
-
-    padding:14px;
-
-    background:#005eb8;
-
-    color:white;
-
-    border:none;
-
-    border-radius:10px;
-
-    font-size:17px;
-
-    cursor:pointer;
+.remember-row {
+  margin-top: 15px;
 
 }
 
-.login-button:hover{
-
-    background:#004990;
-
-}
-
-.link-row{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    margin-top:15px;
+.login-button {
+  width: 100%;
+  margin-top: 25px;
+  padding: 14px;
+  background: #005eb8;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 17px;
+  cursor: pointer;
 
 }
 
-.link-row button{
-
-    border:none;
-
-    background:none;
-
-    color:#005eb8;
-
-    cursor:pointer;
+.login-button:hover {
+  background: #004990;
 
 }
 
-.link-row button:hover{
-
-    text-decoration:underline;
-
-}
-
-hr{
-
-    margin-top:25px;
-
-    margin-bottom:20px;
+.link-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
 
 }
 
-.privacy{
+.link-row button {
+  border: none;
+  background: none;
+  color: #005eb8;
+  cursor: pointer;
 
-    font-size:13px;
+}
 
-    color:#666;
+.link-row button:hover {
+  text-decoration: underline;
 
-    text-align:center;
+}
 
-    line-height:1.5;
+hr {
+  margin-top: 25px;
+  margin-bottom: 20px;
+
+}
+
+.privacy {
+  font-size: 13px;
+  color: #666;
+  text-align: center;
+  line-height: 1.5;
 
 }
