@@ -40,8 +40,8 @@ function Dashboard() {
     }
 
     return {
-      title: 'Okay, here is the advice for now',
-      description: `This is a placeholder result for a ${scenario.audience} customer.`,
+      title: 'Your OCR Rate Summary',
+      description: `Based on the information you provided, here is a summary of your current banking scenario`,
       bullets: [
         `Current OCR rate: ${scenario.currentOCRRate}%`,
         `Current bank rate: ${scenario.currentBankRate}%`,
