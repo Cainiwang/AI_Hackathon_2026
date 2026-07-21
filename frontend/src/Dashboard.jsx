@@ -19,7 +19,7 @@ function Dashboard() {
         title: 'Advice preview',
         description: 'Your future AI advice will appear here after the form is submitted.',
         bullets: [
-          'Choose business or personal first.',
+          'Choose Savings or Borrowing first.',
           'Enter the OCR and bank rate values.',
           'Connect the AI later to replace this placeholder.',
         ],
@@ -137,7 +137,7 @@ function Dashboard() {
           <div className="workspace-header">
             <div>
               <p className="eyebrow">Selected audience</p>
-              <h2>{audience === 'business' ? 'Business' : 'Personal'}</h2>
+              <h2>{audience === 'savings' ? 'Savings' : 'Borrowing'}</h2>
             </div>
 
             <button type="button" className="secondary-button" onClick={handleReset}>

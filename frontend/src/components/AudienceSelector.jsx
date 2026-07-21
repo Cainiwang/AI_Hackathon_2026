@@ -11,13 +11,13 @@ export function AudienceSelector({ onSelect }) {
       </div>
 
       <div className="choice-grid">
-        <button type="button" className="choice-card" onClick={() => onSelect('business')}>
+        <button type="button" className="choice-card" onClick={() => onSelect('savings')}>
           <span className="choice-tag">Savings</span>
           <strong>Saving Interest</strong>
           <span>See how OCR changes may affect the interest you earn on your savings.</span>
         </button>
 
-        <button type="button" className="choice-card" onClick={() => onSelect('personal')}>
+        <button type="button" className="choice-card" onClick={() => onSelect('borrowing')}>
           <span className="choice-tag">Borrowing</span>
           <strong>Loan Interest</strong>
           <span>See how OCR changes may affect the interest you pay on loans.</span>
