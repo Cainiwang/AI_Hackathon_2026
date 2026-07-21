@@ -3,7 +3,7 @@ export function AudienceSelector({ onSelect }) {
     <section className="panel audience-panel">
       <div className="panel-heading">
         <p className="eyebrow">Step 1</p>
-        <h2>Who is this for?</h2>
+        <h2>What is this for?</h2>
         <p className="panel-copy">
           Start by choosing the audience type so the next screen can tailor the inputs and future
           AI advice.
