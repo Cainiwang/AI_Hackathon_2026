@@ -10,6 +10,7 @@ Users can enter the input data:
 - Target interest rate
 - Current customer numnbers
 - Average account balance
+  
 Our tool will generate an AI-supported analysis report that contains estimate customer lost, revenue lost and risks alert.
 
 ## Project Overview
