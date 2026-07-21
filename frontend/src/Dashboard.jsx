@@ -9,6 +9,8 @@ import { getCurrentUser, logoutUser } from "./utils/Auth.js";
 function Dashboard() {
   const [audience, setAudience] = useState('')
   const [scenario, setScenario] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState(false)
   const user = getCurrentUser();
@@ -22,6 +24,20 @@ function Dashboard() {
           'Choose Savings or Borrowing first.',
           'Enter the OCR and bank rate values.',
           'Connect the AI later to replace this placeholder.',
+        ],
+      }
+    }
+
+    if (scenario.report) {
+      return {
+        title: 'AI-generated report',
+        description: scenario.report,
+        bullets: [
+          `Current OCR rate: ${scenario.currentOCRRate}%`,
+          `Current bank rate: ${scenario.currentBankRate}%`,
+          `Target bank rate: ${scenario.targetBankRate}%`,
+          `Customer number: ${scenario.customerNumber}`,
+          `Average balance: ${scenario.averageBalance}`,
         ],
       }
     }
@@ -49,11 +65,50 @@ function Dashboard() {
     setScenario(null)
   }
 
-  const handleScenarioSubmit = (formValues) => {
-    setScenario({
-      audience,
-      ...formValues,
-    })
+  const handleScenarioSubmit = async (formValues) => {
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const payload = {
+        productType: audience === 'savings' ? 'Savings' : 'Loan',
+        currentOcr: Number(formValues.currentOCRRate),
+        currentBankRate: Number(formValues.currentBankRate),
+        targetBankRate: Number(formValues.targetBankRate),
+        customerCount: Number(formValues.customerNumber),
+        averageBalance: Number(formValues.averageBalance),
+      }
+
+      const response = await fetch('http://localhost:8081/api/simulate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      })
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(errorData.error || 'Unable to generate advice right now.')
+      }
+
+      const data = await response.json()
+
+      setScenario({
+        audience,
+        ...formValues,
+        report: data.report,
+      })
+    } catch (err) {
+      setError(err.message || 'Unable to generate advice right now.')
+      setScenario({
+        audience,
+        ...formValues,
+        report: null,
+      })
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -147,7 +202,7 @@ function Dashboard() {
 
           <div className="workspace-grid">
             <OCRForm audience={audience} onSubmit={handleScenarioSubmit} />
-            <AdvicePanel audience={audience} advice={placeholderAdvice} />
+            <AdvicePanel audience={audience} advice={placeholderAdvice} isLoading={isLoading} error={error} />
           </div>
         </section>
       )}
