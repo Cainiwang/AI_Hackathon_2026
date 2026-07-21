@@ -3,6 +3,13 @@
   line-height: 1.5;
   font-weight: 400;
   color: #082a43;
+  --text-h: #082a43;
+  --text: #35506b;
+  --border: rgba(8, 42, 67, 0.12);
+  --accent: #005bac;
+  --accent-bg: rgba(0, 91, 172, 0.1);
+  --accent-border: rgba(0, 91, 172, 0.35);
+  --shadow: 0 20px 60px rgba(8, 42, 67, 0.12);
   background:
     radial-gradient(circle at top left, rgba(0, 97, 168, 0.14), transparent 35%),
     radial-gradient(circle at top right, rgba(0, 163, 163, 0.12), transparent 28%),

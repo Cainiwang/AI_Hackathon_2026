@@ -8,7 +8,7 @@ const initialForm = {
   averageBalance: '',
 }
 
-export function OCRForm({ audience, onSubmit }) {
+export function OCRForm({ audience, onSubmit, isGenerating }) {
   const [form, setForm] = useState(initialForm)
 
   const handleChange = (event) => {
@@ -106,8 +106,8 @@ export function OCRForm({ audience, onSubmit }) {
         </label>
       </div>
 
-      <button type="submit" className="primary-button">
-        Generate advice
+      <button type="submit" className="primary-button" disabled={isGenerating}>
+        {isGenerating ? 'Generating…' : 'Generate response'}
       </button>
 
       <p className="form-footnote">

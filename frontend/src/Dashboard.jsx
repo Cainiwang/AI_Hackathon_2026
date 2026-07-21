@@ -9,11 +9,24 @@ import { getCurrentUser, logoutUser } from "./utils/Auth.js";
 function Dashboard() {
   const [audience, setAudience] = useState('')
   const [scenario, setScenario] = useState(null)
+  const [isGenerating, setIsGenerating] = useState(false)
   const navigate = useNavigate()
   const [showMenu, setShowMenu] = useState(false)
   const user = getCurrentUser();
 
   const placeholderAdvice = useMemo(() => {
+    if (isGenerating) {
+      return {
+        title: 'Generating advice…',
+        description: 'The AI response is loading for the advice panel.',
+        bullets: [
+          'Preparing a placeholder response.',
+          'This is a mock loading state for now.',
+          'No live AI connection is involved yet.',
+        ],
+      }
+    }
+
     if (!scenario) {
       return {
         title: 'Advice preview',
@@ -37,7 +50,7 @@ function Dashboard() {
         `Average balance: ${scenario.averageBalance}`,
       ],
     }
-  }, [scenario])
+  }, [isGenerating, scenario])
 
   const handleAudienceSelect = (nextAudience) => {
     setAudience(nextAudience)
@@ -50,10 +63,16 @@ function Dashboard() {
   }
 
   const handleScenarioSubmit = (formValues) => {
-    setScenario({
-      audience,
-      ...formValues,
-    })
+    setIsGenerating(true)
+    setScenario(null)
+
+    window.setTimeout(() => {
+      setScenario({
+        audience,
+        ...formValues,
+      })
+      setIsGenerating(false)
+    }, 900)
   }
 
   return (
@@ -146,7 +165,7 @@ function Dashboard() {
           </div>
 
           <div className="workspace-grid">
-            <OCRForm audience={audience} onSubmit={handleScenarioSubmit} />
+            <OCRForm audience={audience} onSubmit={handleScenarioSubmit} isGenerating={isGenerating} />
             <AdvicePanel audience={audience} advice={placeholderAdvice} />
           </div>
         </section>

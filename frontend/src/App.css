@@ -57,6 +57,11 @@
   padding: 24px;
 }
 
+.form-panel {
+  display: flex;
+  flex-direction: column;
+}
+
 .panel-heading {
   margin-bottom: 20px;
 }
@@ -156,6 +161,9 @@
   margin-top: 18px;
   background: linear-gradient(135deg, var(--accent), #6d5efb);
   color: white;
+  display: block;
+  width: 100%;
+  min-height: 48px;
 }
 
 .secondary-button {
