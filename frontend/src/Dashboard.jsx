@@ -124,22 +124,9 @@ function Dashboard() {
 
         </div>
 
-        <h1>
-
-          Plan the right rate strategy
-
-        </h1>
-
-        <p className="hero-copy">
-
-          Pick whether this is for business or personal first, then enter the current OCR and banking inputs.
-
-        </p>
-
         <h1>Plan the right rate strategy</h1>
         <p className="hero-copy">
-          Pick whether this is for business or personal first, then enter the current OCR and
-          banking inputs. This is the frontend skeleton only for now.
+          Explore how different OCR rates could affect your banking options.
         </p>
       </header>
 
