@@ -12,15 +12,15 @@ export function AudienceSelector({ onSelect }) {
 
       <div className="choice-grid">
         <button type="button" className="choice-card" onClick={() => onSelect('business')}>
-          <span className="choice-tag">Business</span>
-          <strong>Commercial customer</strong>
-          <span>Use this for company or business banking scenarios.</span>
+          <span className="choice-tag">Savings</span>
+          <strong>Saving Interest</strong>
+          <span>See how OCR changes may affect the interest you earn on your savings.</span>
         </button>
 
         <button type="button" className="choice-card" onClick={() => onSelect('personal')}>
-          <span className="choice-tag">Personal</span>
-          <strong>Retail customer</strong>
-          <span>Use this for individual or household banking scenarios.</span>
+          <span className="choice-tag">Borrowing</span>
+          <strong>Loan Interest</strong>
+          <span>See how OCR changes may affect the interest you pay on loans.</span>
         </button>
       </div>
     </section>
