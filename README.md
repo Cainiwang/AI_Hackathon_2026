@@ -29,7 +29,7 @@ Our project design a simple interface that helps bank staff to simulate a propos
 - Estimate annual revenue changes of bank
 - Generate an AI-supported recommendation
 - Display warnings and assumptions
-- Export the generated report as a PDF
+- Export the generated report
 
 ## How it Works
 1. Users login into our tools
@@ -38,7 +38,7 @@ Our project design a simple interface that helps bank staff to simulate a propos
 4. The frontend will send inputs to the Springboot backend
 5. Backend send system prompt and user prompt to AWS bedrock AI
 6. The AI-generated report is returned to the frontend.
-7. The user can view or export the report as a PDF.
+7. The user can view the report
 
 ## System Architecture
 
@@ -63,7 +63,6 @@ React
 JavaScript
 Vite
 CSS
-jsPDF
 ### Backend
 Java
 Spring Boot
